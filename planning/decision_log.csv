@@ -1,0 +1,12 @@
+id,decision,options,owner,evidence_needed,due,status,fallback_if_blocked
+D01,Catalogue and adapter mapping,Real field dictionary | provisional catalogue,Andrei,Reviewed field dictionary + supported concept list,2026-11-13,open - blocking,Documented adapter mock with provisional catalogue (bench/validate.py)
+D02,France hosting and data flows,Self-hosted in approved env | other,Andrei + advisers,Environment inventory + observed egress checks,2026-11-20,open,Local dev on synthetic data only
+D03,Model / serving engine / compute,Ministral 3 3B v25.12 | Qwen3 4B Instruct 2507 | rules only,Andrei + technical lead,Same-case benchmark on approved hardware + licence review,2026-11-13,in progress - harness ready,Narrow the task; label mock as mock
+D04,UI platform and scope,SwiftUI in repo | isolated mobile prototype,Andrei + Alexandra + UX lead,First complete synthetic journey + repo access,2026-11-13,open,Mobile-sized prototype + iOS handover doc
+D05,English copy and French localisation,English P0 | French P1,Alexandra,Reviewed strings,2026-11-13,open,Use proposed copy in ux/ux_states.csv marked unreviewed
+D06,Knowledge topics and source rights,6-10 docs (max 15) + 2 papers + 24 intents,Alexandra + qualified reviewer,Source register + approvals,2026-11-20,open,Prepare candidates only; nothing presented as approved
+D07,Qualified content reviewer,Name reviewer + turnaround + cost,Alexandra,Named person and cost line,2026-11-13,open - blocking,Hold approval; keep candidate status
+D08,Selected-record context semantics,5 records / 7 days / removal rules,Andrei + Alexandra,Ownership/version checks + exclusion test,2026-11-20,open,Server-side manifest on synthetic data
+D09,Privacy purposes and retention,24h draft expiry / 30d metadata proposed,ENDOless privacy owner,Versioned policy,before any real data,open,Synthetic data only
+D10,Student roles + supervisor + hours,Technical lead / UX lead / supervisor named,Alexandra + supervisor,Convention,2026-11-06,open,Assume 200h per student until confirmed
+D11,Kickoff date discrepancy (19 vs 23 Oct),Use 23 Oct deck as reference,Both students,Confirmation by email,2026-11-06,open,Plan from the 6 Nov checkpoint

@@ -1,0 +1,25 @@
+id,epic,task,owner_role,requirement,acceptance_check,priority,due,status
+B01,Model,Run rules baseline on dev cases,Technical lead,R03,Report P/R by family,P0,2026-11-06,done (harness)
+B02,Model,Benchmark Ministral 3 3B v25.12 on same cases,Technical lead,R03,model_record_template filled,P0,2026-11-13,todo (needs endpoint)
+B03,Model,Benchmark Qwen3 4B Instruct 2507 on same cases,Technical lead,R03,model_record_template filled,P0,2026-11-13,todo (needs endpoint)
+B04,Model,Decide model path or narrow task,Technical lead + Andrei,R03,Decision D03 logged,P0,2026-11-13,todo
+B05,Extraction,Expand dev set 15 to 48 cases (EN) + calibration with UX lead,Both,R03,Annotation rules frozen,P0,2026-11-20,todo
+B06,Extraction,Map concepts to real catalogue,Technical lead + Andrei,R03,Mapping CSV with real IDs,P0,2026-11-13,blocked (D01)
+B07,Backend,Draft lifecycle (create/patch/discard) with expiry,Technical lead,R04,Test: unconfirmed never in journal,P0,2026-11-20,todo
+B08,Backend,Confirm endpoint with version+digest+idempotency key,Technical lead,R05,Tests: double tap / retry / stale / expired,P0,2026-11-20,todo
+B09,Backend,Ownership checks on every object,Technical lead,R06,Cross-account tests,P0,2026-11-20,todo
+B10,Backend,Adapter mock returning deterministic receipt,Technical lead,R05,Vertical slice demo,P0,2026-11-13,todo
+B11,Knowledge,Triage source candidates M01-M14 to 6-10 docs,UX lead,R13,Source register v0,P0,2026-11-13,todo
+B12,Knowledge,Choose 2 papers + draft 24 question intents,Both + Alexandra,R13/R14,Intent list agreed,P0,2026-11-13,todo
+B13,Knowledge,Citation validator (source+version+passage),Technical lead,R13,100% resolve test,P0,2026-11-27,todo
+B14,UX,Wireframes UI01-UI06 + state fixtures,UX lead,R01/R04,ux/ux_states.csv implemented,P0,2026-11-13,todo
+B15,UX,Clickable draft review + save receipt flow,UX lead,R04,User can correct/discard,P0,2026-11-20,todo
+B16,UX,English copy for review by Alexandra,UX lead,R01,Copy approved,P0,2026-11-13,todo
+B17,UX,Accessibility checklist (44pt / 4.5:1 / VoiceOver / Dynamic Type),UX lead,R11,Checklist run,P0,2026-12-04,todo
+B18,Safety,Urgent-support templates (FR numbers from config),Alexandra + reviewer,R08,Reviewed copy,P0,2026-12-04,todo
+B19,Context,Selection of max 5 records / 7 days + removal,Technical lead,R15,All selection tests pass,P0,2026-12-04,todo
+B20,Summary,Deterministic consultation summary + coverage,Technical lead,R10,Every fact traceable,P0,2026-12-04,todo
+B21,Privacy,No body logging; egress denied check,Technical lead + Andrei,R09,Inspection report,P0,2026-12-04,todo
+B22,Eval,Locked set 80 cases + protocol,Both,R03,Frozen before testing,P0,2026-12-18,todo
+B23,Eval,Usability study (6 participants),UX lead,R01,Findings report,P0,January,todo
+B24,Handover,README + runbook + integration recommendation,Technical lead,R12,Colleague can run it,P0,January,todo
