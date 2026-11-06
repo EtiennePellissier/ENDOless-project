@@ -1,0 +1,44 @@
+"""
+ENDOless PRIM - Context Validator (Exigence R15)
+Contrôle strict des enregistrements présélectionnés comme contexte prioritaire.
+"""
+
+from datetime import date, timedelta
+from typing import Any, Dict, List
+
+
+class ContextSelectionValidator:
+    MAX_RECORDS = 5
+    MAX_DAYS_LOOKBACK = 7
+
+    @classmethod
+    def validate_context(
+        cls, user_id: str, records: List[Dict[str, Any]], reference_date: date
+    ) -> List[Dict[str, Any]]:
+        """
+        Vérifie l'appartenance de la donnée, son état confirmé, et le respect de la limite temporelle.
+        """
+        if len(records) > cls.MAX_RECORDS:
+            raise ValueError(f"Le contexte dépasse la limite maximale de {cls.MAX_RECORDS} enregistrements.")
+
+        validated_records = []
+        for record in records:
+            if record.get("user_id") != user_id:
+                raise PermissionError("Accès refusé : Cet enregistrement n'appartient pas à cet utilisateur.")
+
+            if not record.get("is_confirmed", False):
+                raise ValueError("Seuls les enregistrements confirmés peuvent servir de contexte.")
+
+            rec_date = record.get("record_date")
+            if isinstance(rec_date, str):
+                rec_date = date.fromisoformat(rec_date)
+
+            days_diff = (reference_date - rec_date).days
+            if days_diff < 0 or days_diff > cls.MAX_DAYS_LOOKBACK:
+                raise ValueError(
+                    f"L'enregistrement {record.get('record_id')} dépasse la fenêtre autorisée de 7 jours."
+                )
+
+            validated_records.append(record)
+
+        return validated_records
