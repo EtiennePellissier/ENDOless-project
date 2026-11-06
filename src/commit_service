@@ -1,0 +1,42 @@
+"""
+ENDOless PRIM - Commit Service (Exigences R04 & R05)
+Gestion de la persistance journalisée après confirmation explicite et idempotence des requêtes réseau.
+"""
+
+from datetime import datetime
+from typing import Any, Dict, Set
+from src.models import CommitReceipt, JournalDraft
+
+
+class BackendCommitService:
+    def __init__(self):
+        self._journal_db: Dict[str, Dict[str, Any]] = {}
+        self._processed_tokens: Set[str] = set()
+
+    def commit_draft(self, draft: JournalDraft, commit_token: str) -> CommitReceipt:
+        """
+        Enregistre un brouillon confirmé. Garantit l'idempotence via le commit_token.
+        """
+        # Exigence R05 : Idempotence des retentatives réseau
+        if commit_token in self._processed_tokens:
+            return CommitReceipt(
+                status="ALREADY_SAVED",
+                receipt_id=f"rcpt_dup_{draft.draft_id}",
+                timestamp=datetime.now(),
+                record_id=draft.draft_id,
+            )
+
+        # Exigence R04 : Interdiction d'écrire sans confirmation explicite
+        if not draft.is_confirmed:
+            raise ValueError("Impossible de sauvegarder un brouillon non confirmé par l'utilisateur.")
+
+        # Écriture effective
+        self._journal_db[draft.draft_id] = draft.dict()
+        self._processed_tokens.add(commit_token)
+
+        return CommitReceipt(
+            status="SAVED",
+            receipt_id=f"rcpt_{draft.draft_id}",
+            timestamp=datetime.now(),
+            record_id=draft.draft_id,
+        )
