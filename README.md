@@ -16,8 +16,6 @@ Everything is synthetic. The catalogue in `bench/validate.py` is PROVISIONAL (An
 | `schema/observation.schema.json` | Draft observation format (proposed, not the real DB) |
 | `planning/decision_log.csv`, `planning/backlog.csv` | 11 decisions with owner/fallback; 24 backlog tasks mapped to R01-R15 |
 | `ux/ux_states.csv` | 18 interface states with copy, test fixture and accessibility check |
-| `templates/` | Model record sheet and results sheet to fill with the real runs |
-
 ## How it works (the pipeline)
 ```
 message --> [extractor: rules OR model] --> raw proposals --> [validator] --> validated draft --> [evaluate vs gold]
