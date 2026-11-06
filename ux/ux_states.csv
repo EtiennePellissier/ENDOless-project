@@ -1,0 +1,20 @@
+state,screen,what_the_user_sees,proposed_english_copy,test_fixture,accessibility_check
+empty / first use,UI01,Short intro + 2-3 starter chips + composer,"Ask about endometriosis or women's health, explore a study, or record how you feel. Explanations show their sources. You review a note before it is saved.",fixture_first_use,Dynamic Type max; chips wrap (no carousel)
+typing,UI01,Composer active; no server claim,What would you like to ask or record?,fixture_typing,Label on composer
+processing,UI01,Brief activity indicator + Cancel,(activity indicator),fixture_processing,Announce once; Cancel >=44pt
+clarification,UI01,ONE short question + Skip,Which day would you like to record? You can skip this question.,fixture_clarify_date,Skip reachable without swipe
+draft ready,UI02,Draft labelled; absolute date; values; unresolved shown,Draft to review / Not specified,fixture_draft_ready,Announce 'draft ready' once
+editing,UI02,Edit/remove each observation,(edit controls),fixture_editing,Focus returns to invoking control
+saving,UI02,Buttons disabled; retry key kept,Saving...,fixture_saving,No double submit
+saved,UI03,Receipt-based confirmation reusing journal entry,Note saved,fixture_saved_receipt,Only shown after backend receipt
+save unknown,UI02,Cannot confirm; check status; no blind retry,I cannot confirm whether this note was saved yet. Check its status before trying again.,fixture_save_unknown,Error announced
+stale draft (409),UI02,Fresh review required,(proposed) This draft changed. Please review the latest version.,fixture_stale,Clear error + action
+expired draft (410),UI01,State the loss accurately; offer new entry,(proposed) This draft expired. Start a new note.,fixture_expired,Clear action
+no supported observation,UI01,Nothing to draft; offer manual entry,(proposed) I could not find anything to record. You can add a note yourself.,fixture_no_obs,
+model unavailable / offline,UI01,Explain + manual entry stays usable,(proposed) The assistant is unavailable. You can still record manually.,fixture_model_down,Manual path works
+health answer + sources,UI05,Short answer first; View sources; limits visible,From one study / Based on the study abstract,fixture_sourced_answer,Source sheet focus order
+missing evidence,UI01,No invented answer,I do not have a reviewed source that answers this question reliably.,fixture_no_evidence,
+selected recent notes,UI01,Chips of selected notes + Stop using these notes,Use recent notes / Review selected notes / Stop using these notes,fixture_context_selected,Removal also excludes them from model input
+empty selection,UI01,Continue without notes,No recent notes selected. You can still ask a question or record how you feel.,fixture_context_empty,
+urgent support,UI01,Brief acknowledgement + human help action + resource from config,(reviewed copy by Alexandra + specialist),fixture_support,Never abrupt chat closure
+expired authentication,UI01,Sign in again; no cached content leaks to next account,(proposed),fixture_auth_expired,Cache cleared on account change
