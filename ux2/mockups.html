@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>ENDOless – Maquettes des écrans</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Montserrat:wght@600;700&display=swap">
+<style>
+:root{
+  --bg:#f4f1f8; --surface:#fff; --ink:#1d1730; --muted:#6c6580; --line:#e3deee;
+  --primary:#6635b1; --primary-soft:#ece4f8; --period:#c2415d; --period-soft:#f9dfe5;
+  --fertile:#2f8f83; --fertile-soft:#d9f0ec; --user:#6635b1; --user-ink:#fff;
+}
+@media (prefers-color-scheme:dark){
+  :root{--bg:#14101c; --surface:#1e1829; --ink:#f1edf8; --muted:#a79fbb; --line:#352c47;
+    --primary:#9b6ee0; --primary-soft:#2c2142; --period:#e0627e; --period-soft:#44202b;
+    --fertile:#52b8aa; --fertile-soft:#1c3733; --user:#9b6ee0; --user-ink:#14101c;}
+}
+*{box-sizing:border-box}
+html,body{margin:0}
+body{background:var(--bg);color:var(--ink);font:15px/1.5 Inter,system-ui,sans-serif;padding:32px 20px 64px}
+h1,h2,h3{font-family:Montserrat,Inter,sans-serif;margin:0}
+header{max-width:1100px;margin:0 auto 32px}
+header h1{font-size:28px}
+header p{color:var(--muted);max-width:68ch;margin:8px 0 0}
+.grid{max-width:1100px;margin:0 auto;display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:40px 28px}
+figure{margin:0;display:flex;flex-direction:column;align-items:center}
+figcaption{margin-top:12px;max-width:300px;text-align:center;color:var(--muted);font-size:13px}
+figcaption strong{display:block;color:var(--ink);font-size:14px}
+.phone{width:300px;height:560px;background:var(--surface);border:1px solid var(--line);border-radius:28px;overflow:hidden;display:flex;flex-direction:column}
+.top{display:flex;align-items:center;justify-content:space-between;padding:14px 16px;border-bottom:1px solid var(--line)}
+.brand{font-family:Montserrat,sans-serif;font-weight:700;color:var(--primary)}
+.body{padding:16px;flex:1;overflow:hidden;display:flex;flex-direction:column;gap:12px}
+.nav{display:flex;justify-content:space-around;border-top:1px solid var(--line);padding:10px 4px;font-size:11px;color:var(--muted)}
+.nav span.on{color:var(--primary);font-weight:600}
+h2{font-size:17px}
+.sub{color:var(--muted);font-size:13px;margin:-6px 0 0}
+.tabs{display:grid;grid-template-columns:1fr 1fr;background:var(--primary-soft);border-radius:10px;padding:3px}
+.tabs span{text-align:center;padding:7px;border-radius:8px;font-size:13px;color:var(--muted)}
+.tabs span.on{background:var(--surface);color:var(--ink);font-weight:600}
+label{font-size:13px;font-weight:500;display:block;margin-bottom:4px}
+.input{border:1px solid var(--line);border-radius:10px;padding:9px 11px;font-size:13px;color:var(--muted)}
+.btn{background:var(--primary);color:var(--user-ink);border-radius:10px;padding:11px;text-align:center;font-weight:600;font-size:14px}
+.btn.ghost{background:transparent;color:var(--ink);border:1px solid var(--line)}
+.link{color:var(--primary);font-size:13px;text-align:center}
+.bar{height:6px;background:var(--primary-soft);border-radius:3px}
+.bar i{display:block;height:100%;width:100%;background:var(--primary);border-radius:3px}
+.checks{display:grid;grid-template-columns:1fr 1fr;gap:6px 8px;font-size:12px}
+.checks span::before{content:"";display:inline-block;width:12px;height:12px;border:1.5px solid var(--line);border-radius:3px;margin-right:6px;vertical-align:-2px}
+.checks span.on::before{background:var(--primary);border-color:var(--primary)}
+.chat{display:flex;flex-direction:column;gap:10px}
+.msg{max-width:84%;padding:9px 12px;border-radius:14px;font-size:13px}
+.msg.ai{background:var(--primary-soft);border-bottom-left-radius:4px}
+.msg.me{background:var(--user);color:var(--user-ink);align-self:flex-end;border-bottom-right-radius:4px}
+.found{border-left:3px solid var(--fertile);background:var(--fertile-soft);padding:8px 10px;font-size:12px;border-radius:0 8px 8px 0;max-width:84%}
+.found b{display:block;font-size:12px;margin-bottom:2px}
+.compose{display:flex;gap:8px;margin-top:auto}
+.compose .input{flex:1}
+.compose .send{width:38px;border-radius:10px;background:var(--primary);color:var(--user-ink);display:grid;place-items:center}
+.modes{display:grid;grid-template-columns:1fr 1fr;gap:8px}
+.mode{border:1px solid var(--line);border-radius:12px;padding:10px;font-size:12px;color:var(--muted)}
+.mode.on{border-color:var(--primary);background:var(--primary-soft);color:var(--ink)}
+.mode b{display:block;font-size:13px;color:var(--ink)}
+.card{border:1px solid var(--line);border-radius:12px;padding:12px}
+.card h3{font-size:14px;margin-bottom:2px}
+.card p{margin:0 0 8px;color:var(--muted);font-size:12px}
+.scale{display:grid;grid-template-columns:repeat(5,1fr);gap:4px;text-align:center;font-size:11px}
+.scale span{border:1px solid var(--line);border-radius:8px;padding:6px 0}
+.scale span.on{background:var(--primary);border-color:var(--primary);color:var(--user-ink);font-weight:600}
+.chips{display:flex;flex-wrap:wrap;gap:6px}
+.chip{border:1px solid var(--line);border-radius:999px;padding:4px 10px;font-size:12px}
+.chip.on{background:var(--primary-soft);border-color:var(--primary);color:var(--primary);font-weight:600}
+.cal{display:grid;grid-template-columns:repeat(7,1fr);gap:3px;text-align:center;font-size:12px}
+.cal .h{color:var(--muted);font-size:11px;padding-bottom:2px}
+.cal span{padding:6px 0;border-radius:8px}
+.cal .p{background:var(--period-soft);color:var(--period);font-weight:600}
+.cal .f{background:var(--fertile-soft);color:var(--fertile)}
+.cal .sel{outline:2px solid var(--primary);outline-offset:-2px;font-weight:700}
+.legend{display:flex;gap:12px;font-size:11px;color:var(--muted)}
+.legend i{display:inline-block;width:9px;height:9px;border-radius:3px;margin-right:4px}
+.list{display:flex;flex-direction:column;gap:6px;font-size:12px}
+.row{display:flex;justify-content:space-between;border-top:1px solid var(--line);padding-top:6px}
+svg text{fill:var(--muted);font-size:10px;font-family:Inter,sans-serif}
+.note{max-width:1100px;margin:48px auto 0;color:var(--muted);font-size:13px;border-top:1px solid var(--line);padding-top:16px}
+</style>
+</head>
+<body>
+<header>
+  <h1>ENDOless – maquettes des écrans</h1>
+  <p>Représentation simplifiée de six écrans, avec les libellés et la structure relevés dans le code (état actuel). Couleur principale et typographies reprises de <code>client/src/index.css</code> : violet, Inter pour le texte, Montserrat pour les titres.</p>
+</header>
+
+<div class="grid">
+
+<!-- 1. Connexion -->
+<figure>
+  <div class="phone">
+    <div class="top"><span class="brand">ENDOless</span></div>
+    <div class="body">
+      <div class="tabs"><span class="on">Login</span><span>Register</span></div>
+      <h2>Welcome back</h2>
+      <p class="sub">Enter your credentials to access your account</p>
+      <div><label>Email</label><div class="input">you@example.com</div></div>
+      <div><label>Password</label><div class="input">••••••••</div></div>
+      <div class="btn">Login</div>
+      <div class="link">Forgot password?</div>
+    </div>
+  </div>
+  <figcaption><strong>Connexion (/auth)</strong>Deux onglets : Login et Register. Le lien de récupération mène au parcours en 3 étapes.</figcaption>
+</figure>
+
+<!-- 2. Onboarding -->
+<figure>
+  <div class="phone">
+    <div class="top"><span class="brand">ENDOless</span><span class="sub" style="margin:0">Step 3 of 3</span></div>
+    <div class="body">
+      <div class="bar"><i></i></div>
+      <h2>Medical Information</h2>
+      <div><label>Diagnosed Condition</label><div class="input">Endometriosis ▾</div></div>
+      <div><label>Common Symptoms (select all that apply)</label>
+        <div class="checks">
+          <span class="on">Pelvic Pain</span><span>Back Pain</span>
+          <span class="on">Heavy Periods</span><span class="on">Fatigue</span>
+          <span>Bloating</span><span>Nausea</span>
+          <span>Headaches</span><span>Mood Swings</span>
+          <span>Insomnia</span><span>Bowel Issues</span>
+        </div>
+      </div>
+      <div style="display:flex;gap:8px;margin-top:auto"><div class="btn ghost" style="flex:1">Back</div><div class="btn" style="flex:1">Continue</div></div>
+    </div>
+  </div>
+  <figcaption><strong>Onboarding, étape 3 (/onboarding)</strong>Dernière étape après « Basic Information » et « Menstrual Cycle Information ».</figcaption>
+</figure>
+
+<!-- 3. Home chat -->
+<figure>
+  <div class="phone">
+    <div class="top"><span class="brand">ENDOless</span></div>
+    <div class="body">
+      <div class="modes">
+        <div class="mode"><b>Fast Questions</b>Quick form</div>
+        <div class="mode on"><b>Speak Naturally</b>Chat with the assistant</div>
+      </div>
+      <div class="chat">
+        <div class="msg me">Sharp pain low on the left since this morning, worse when I stand.</div>
+        <div class="found"><b>Symptoms recorded</b>Pelvic pain, lower left · worse standing</div>
+        <div class="msg ai">Thanks for telling me. How much is it affecting what you can do today?</div>
+      </div>
+      <div class="compose"><div class="input">Describe how you're feeling today...</div><div class="send">➤</div></div>
+    </div>
+    <div class="nav"><span class="on">Home</span><span>Dashboard</span><span>Analytics</span><span>Calendar</span><span>Profile</span></div>
+  </div>
+  <figcaption><strong>Home, mode Speak Naturally (/)</strong>Le bloc « Symptoms recorded » apparaît quand une analyse est attachée à la réponse.</figcaption>
+</figure>
+
+<!-- 4. Home fast -->
+<figure>
+  <div class="phone">
+    <div class="top"><span class="brand">ENDOless</span></div>
+    <div class="body">
+      <div class="modes">
+        <div class="mode on"><b>Fast Questions</b>Quick form</div>
+        <div class="mode"><b>Speak Naturally</b>Chat with the assistant</div>
+      </div>
+      <div class="card">
+        <h3>Pain Impact</h3>
+        <p>How does your pain affect your daily activities?</p>
+        <div class="scale"><span>0</span><span>1</span><span class="on">2</span><span>3</span><span>4</span></div>
+      </div>
+      <div class="card">
+        <h3>Pain Location</h3>
+        <div class="chips"><span class="chip on">Lower abdomen</span><span class="chip">Back</span><span class="chip on">Pelvis</span><span class="chip">Legs</span></div>
+      </div>
+      <div class="card"><h3>Fatigue</h3><div class="scale"><span>0</span><span class="on">1</span><span>2</span><span>3</span><span>4</span></div></div>
+      <div class="btn" style="margin-top:auto">Save Today's Symptoms</div>
+    </div>
+  </div>
+  <figcaption><strong>Home, mode Fast Questions (/)</strong>Pain Impact, Pain Location, Fatigue, Anxiety/Mood, symptômes additionnels, puis enregistrement.</figcaption>
+</figure>
+
+<!-- 5. Calendrier -->
+<figure>
+  <div class="phone">
+    <div class="top"><span class="brand">ENDOless</span></div>
+    <div class="body">
+      <h2>Cycle Calendar</h2>
+      <div class="cal">
+        <div class="h">M</div><div class="h">T</div><div class="h">W</div><div class="h">T</div><div class="h">F</div><div class="h">S</div><div class="h">S</div>
+        <span></span><span></span><span class="p">1</span><span class="p">2</span><span class="p">3</span><span class="p">4</span><span class="p">5</span>
+        <span>6</span><span>7</span><span>8</span><span>9</span><span>10</span><span>11</span><span>12</span>
+        <span>13</span><span class="f">14</span><span class="f">15</span><span class="f sel">16</span><span class="f">17</span><span>18</span><span>19</span>
+        <span>20</span><span>21</span><span>22</span><span>23</span><span>24</span><span>25</span><span>26</span>
+      </div>
+      <div class="legend"><span><i style="background:var(--period-soft)"></i>Period</span><span><i style="background:var(--fertile-soft)"></i>Fertility window</span></div>
+      <div class="card">
+        <h3>Day 16</h3>
+        <div class="list">
+          <div class="row"><span>Period Flow</span><span>None</span></div>
+          <div class="row"><span>Fertility Tracking</span><span>Add</span></div>
+          <div class="row"><span>Symptoms for This Day</span><span>2 logged</span></div>
+        </div>
+      </div>
+    </div>
+    <div class="nav"><span>Home</span><span>Dashboard</span><span>Analytics</span><span class="on">Calendar</span><span>Profile</span></div>
+  </div>
+  <figcaption><strong>Period Calendar (/calendar)</strong>Un clic sur un jour ouvre Period Flow, Fertility Tracking et Symptoms for This Day.</figcaption>
+</figure>
+
+<!-- 6. Dashboard -->
+<figure>
+  <div class="phone">
+    <div class="top"><span class="brand">ENDOless</span></div>
+    <div class="body">
+      <h2>Symptom Insights</h2>
+      <div class="tabs"><span class="on">Energy Levels</span><span>Mood</span></div>
+      <div class="card">
+        <h3>Symptom Trends</h3>
+        <svg viewBox="0 0 240 110" width="100%" role="img" aria-label="Courbe d'énergie sur sept jours">
+          <line x1="24" y1="90" x2="232" y2="90" stroke="currentColor" stroke-opacity=".2"/>
+          <line x1="24" y1="50" x2="232" y2="50" stroke="currentColor" stroke-opacity=".12"/>
+          <polyline fill="none" stroke="var(--primary)" stroke-width="2.5" stroke-linejoin="round" stroke-linecap="round" points="30,40 65,55 100,70 135,62 170,35 205,48 228,30"/>
+          <text x="2" y="93">1</text><text x="2" y="53">3</text><text x="2" y="14">5</text>
+          <text x="26" y="106">Mon</text><text x="108" y="106">Thu</text><text x="206" y="106">Sun</text>
+        </svg>
+      </div>
+      <div class="card">
+        <h3>Detected Patterns</h3>
+        <div class="list">
+          <div class="row"><span>Fatigue + heavy flow</span><span>3 times</span></div>
+          <div class="row"><span>Low energy after poor sleep</span><span>2 times</span></div>
+        </div>
+      </div>
+    </div>
+    <div class="nav"><span>Home</span><span class="on">Dashboard</span><span>Analytics</span><span>Calendar</span><span>Profile</span></div>
+  </div>
+  <figcaption><strong>Dashboard (/dashboard)</strong>Tendances avec onglets Energy Levels et Mood, puis Detected Patterns. Sans données : « No Symptom Data Yet ».</figcaption>
+</figure>
+
+</div>
+
+<p class="note">Données d'exemple fictives. Sur ordinateur, l'application utilise un menu latéral au lieu de la barre du bas représentée ici ; la barre du bas est une adaptation mobile proposée pour ces maquettes.</p>
+</body>
+</html>
