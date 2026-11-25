@@ -1,8 +1,5 @@
 # ENDOless - UX Flows
 
-This document describes how a user moves through the ENDOless app, screen by screen. I wrote it by reading the client code (`client/src/`) and the API routes (`server/routes.ts`, `server/auth.ts`). I did not run the app, so anything about visual behaviour should be checked on screen.
-
-The mockups for the main screens are in `mockups.html` (same folder).
 
 ## 1. Screens
 
